@@ -54,7 +54,16 @@
 
             <div class="mb-3">
                 <label for="date" class="form-label">Date</label>
-                <input type="date" class="form-control" name="date" required>
+                <input type="date" class="form-control" name="date" id="date" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="receipt_type" class="form-label">Receipt Type</label>
+                <input list="receiptTypes" class="form-control" id="receipt_type" name="receipt_type" placeholder="Choose or type receipt type">
+                <datalist id="receiptTypes">
+                    <option value="Food">
+                    <option value="Jobsite Expense">
+                </datalist>
             </div>
 
             <div class="mb-3">
@@ -68,5 +77,13 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Automatically set today's date in the date input field
+        document.addEventListener("DOMContentLoaded", function () {
+            const dateInput = document.getElementById("date");
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+        });
+    </script>
 </body>
 </html>
